@@ -19,13 +19,6 @@ dbConnection();
 // Directorio Público
 app.use(express.static("public"));
 
-//Session
-app.use(session({
-  secret: "mango",
-  resave: false,
-  saveUninitialized: false
-}))
-
 // CORS
 app.use(
   cors({
