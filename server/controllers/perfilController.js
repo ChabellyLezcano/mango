@@ -3,7 +3,6 @@ const Perfil = require("../models/Perfil");
 const path = require("path");
 const fs = require("fs");
 const { db } = require("../models/Perfil");
-const {crearUsuario} = require('./authController');
 const Usuario = require("../models/Usuario");
 
 const crearPerfil = async (req, res = response) => {
@@ -17,20 +16,9 @@ const crearPerfil = async (req, res = response) => {
       telefono_fijo,
       municipio,
       provincia,
-      usuario = req.session.Usuario
-    } = req.body;
-    console.log("Guardado en la sesión")
-    console.log(req.session.Usuario)
-    // Obtener la foto subida por el usuario
-    /*const foto = req.file;
+      usuario
     
-        // Check if a file was uploaded
-        if (!foto) {
-            return res.status(400).json({
-                ok: false,
-                msg: 'No se ha enviado ninguna foto'
-            });
-        }*/
+    } = req.body;
 
     // Crear una instancia del modelo Perfil
     const perfil = new Perfil({
@@ -42,10 +30,10 @@ const crearPerfil = async (req, res = response) => {
       telefono_fijo,
       municipio,
       provincia,
-      usuario
+      usuario,
+      token
     });
 
-    
     // Guardar el perfil en MongoDB
     await perfil.save();
 
@@ -64,6 +52,16 @@ const crearPerfil = async (req, res = response) => {
       ok: false,
       msg: "Error al guardar el perfil en la base de datos",
     });
+    // Obtener la foto subida por el usuario
+    /*const foto = req.file;
+    
+        // Check if a file was uploaded
+        if (!foto) {
+            return res.status(400).json({
+                ok: false,
+                msg: 'No se ha enviado ninguna foto'
+            });
+        }*/
   }
 };
 

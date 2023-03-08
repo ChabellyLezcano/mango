@@ -6,7 +6,8 @@ const bodyParser = require('body-parser');
 const fileFilter = require('./middlewares/file-filter');
 const { v4: uuidv4 } = require('uuid');
 const { dbConnection } = require("./db/config");
-const session = require('express-session');
+
+
 require("dotenv").config();
 
 // Crear aplicación de express
@@ -18,13 +19,6 @@ dbConnection();
 
 // Directorio Público
 app.use(express.static("public"));
-
-//Session
-app.use(session({
-  secret: "mango",
-  resave: false,
-  saveUninitialized: false
-}))
 
 // CORS
 app.use(
@@ -65,3 +59,5 @@ app.use("/api/presupuesto", require("./routes/presupuestos"));
 app.listen(process.env.PORT, () => {
   console.log(`Servidor corriendo en puerto ${process.env.PORT}`);
 });
+
+

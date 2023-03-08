@@ -2,6 +2,7 @@ const { Router } = require("express");
 const { check } = require("express-validator");
 const { crearPerfil, borrarPerfil, actualizarPerfil, verPefil } = require("../controllers/perfilController");
 const { validarCampos } = require("../middlewares/validar-campos");
+const { validarJWT } = require("../middlewares/validar-jwt");
 
 const router = Router();
 
@@ -18,6 +19,7 @@ router.post(
     check("telefono_fijo", "El campo del teléfono fijo está vacío").notEmpty(),
     check("cp", "El campo del cp está vacío").notEmpty(),
     validarCampos,
+    validarJWT
   ],
   crearPerfil
 );
