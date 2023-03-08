@@ -40,11 +40,6 @@ const crearUsuario = async(req, res = response) => {
 
         // Generar el JWT
         const token = await generarJWT( dbUser.id, name );
-        
-        //Guardar Usuario en session
-        req.session.Usuario = dbUser;
-
-        console.log(req.session.Usuario)
 
         // Crear usuario de DB
         await dbUser.save();
