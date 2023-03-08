@@ -17,10 +17,9 @@ const crearPerfil = async (req, res = response) => {
       telefono_fijo,
       municipio,
       provincia,
-      usuario = req.session.Usuario
+      usuario
     } = req.body;
-    console.log("Guardado en la sesión")
-    console.log(req.session.Usuario)
+   
     // Obtener la foto subida por el usuario
     /*const foto = req.file;
     
