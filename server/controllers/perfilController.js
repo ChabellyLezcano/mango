@@ -16,9 +16,26 @@ const crearPerfil = async (req, res = response) => {
       telefono_fijo,
       municipio,
       provincia,
-      usuario
-    
+      
     } = req.body;
+  
+
+    const { uid } = req;
+
+
+    const usuario =  uid;
+
+    console.log(usuario)
+    // Obtener la foto subida por el usuario
+    /*const foto = req.file;
+    
+        // Check if a file was uploaded
+        if (!foto) {
+            return res.status(400).json({
+                ok: false,
+                msg: 'No se ha enviado ninguna foto'
+            });
+        }*/
 
     // Crear una instancia del modelo Perfil
     const perfil = new Perfil({
@@ -30,9 +47,25 @@ const crearPerfil = async (req, res = response) => {
       telefono_fijo,
       municipio,
       provincia,
-      usuario,
-      token
+      usuario
     });
+
+    const perfilExistente = await Perfil.findOne({ usuario });
+
+if (perfilExistente) {
+  return res.status(400).json({
+    ok: false,
+    msg: "Ya existe un perfil para este usuario",
+  });
+} 
+const nifExistente = await Perfil.findOne({ nif });
+
+if (nifExistente) {
+  return res.status(400).json({
+    ok: false,
+    msg: "Ya existe un perfil con este nif",
+  });
+}
 
     // Guardar el perfil en MongoDB
     await perfil.save();

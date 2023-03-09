@@ -1,3 +1,4 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -40,15 +41,18 @@ export class PerfilComponent {
   
     const { direccion, cp, telefono_fijo, telefono_movil, nif, municipio, provincia } = this.miFormulario.value;
   
-    //const usuario = { _id: this.usuario.uid, email: this.usuario.email, name: this.usuario.name }; // add _id field to user object
-  
-    this.perfilService.perfil(direccion, cp, telefono_fijo, telefono_movil, nif, municipio, provincia) //usuario)
-    .subscribe( resp => {
-      this.router.navigateByUrl('/dashboard');
-    })
-    
-  
-    //this.router.navigateByUrl('/dashboard')
-  }
+    this.perfilService.perfil(direccion, cp, telefono_fijo, telefono_movil, nif, municipio, provincia)
+    .subscribe(
+    (resp) => {
+    Swal.fire('Éxito', 'Perfil creado correctamente', 'success');
+    this.router.navigateByUrl('/dashboard');
+    },
+    (error) => {
+    console.log(error);
+    Swal.fire('Error', error.error.msg, 'error');
+    }
+    );
+
+}
 
 }

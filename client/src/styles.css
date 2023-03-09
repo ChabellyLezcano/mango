@@ -282,6 +282,9 @@
     border-radius: 0.8rem;
     border: 1px solid #c9c8c8;
     overflow: hidden;
+    display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   }
 
   .card-perfil:hover {
@@ -320,7 +323,10 @@
   
   .button-container {
     text-align: center;
-    padding-top: 35px
+    padding-top: 35px;
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
   }
 
   @media only screen and (max-width: 700px) {
