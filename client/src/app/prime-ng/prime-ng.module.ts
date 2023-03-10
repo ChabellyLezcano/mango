@@ -6,10 +6,15 @@ import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
 import {SidebarModule} from 'primeng/sidebar';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+
 
 
 @NgModule({
-  exports: [ButtonModule, CardModule, InputTextModule, SidebarModule],
+  exports: [ButtonModule, CardModule, InputTextModule,
+     SidebarModule, ConfirmDialogModule, MessageModule, MessagesModule],
   declarations: [],
   imports: [
     

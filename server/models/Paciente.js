@@ -40,7 +40,13 @@ const PacienteSchema = Schema({
     provincia: {
         type: String,
         required: true
-    }
+    },
+    usuario: {
+        type: Schema.Types.ObjectId,
+        ref: 'Usuario',
+        required: true,
+        unique: true
+      }
 });
 
 module.exports = model('Paciente', PacienteSchema );

@@ -9,18 +9,25 @@ import { PerfilComponent } from './perfil/perfil.component';
 
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { SharedModule } from '../shared/shared.module';
+import { ButtonModule } from 'primeng/button';
+import { PacientesComponent } from './pacientes/pacientes.component';
+import { DialogModule } from 'primeng/dialog';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    PerfilComponent
+    PerfilComponent,
+    PacientesComponent
   ],
   imports: [
     CommonModule,
     ProtectedRoutingModule,
     ReactiveFormsModule, 
     PrimeNgModule,
-    SharedModule 
+    SharedModule,
+    ButtonModule,
+    DialogModule, TableModule
   ]
 })
 export class ProtectedModule { }

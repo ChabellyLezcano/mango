@@ -340,6 +340,78 @@
     }
   }
 
+
+   /*Tarjeta paciente*/
+   .card-paciente {
+    width: 46rem;
+    margin: 0 auto;
+    box-shadow: 0 6px 6px 6px rgba(0, 0, 0, 0.5);
+    transition: 0.4s;
+    padding: 2rem;
+    padding-top: auto;
+    border-radius: 0.8rem;
+    border: 1px solid #c9c8c8;
+    overflow: hidden;
+    display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  }
+
+  .card-paciente:hover {
+    box-shadow: 2px 10px 10px 0 rgba(0, 0, 0, 0.4);
+  }
+
+  .title-paciente {
+    text-align: center;
+  }
+
+  .input-container-paciente {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 35px;
+    
+  }
+  
+  .input-container input {
+    width: 50%;
+  }
+  .card-body-paciente {
+    padding: 20px;
+  }
+
+  .custom-input-paciente-1 {
+    font-size: 14px;
+    border-radius: 0.4rem;
+    border: 1px solid #d3d3d3;
+    height: 45px;
+    width: 436px;
+  }
+
+  .custom-paciente-input-2{
+    font-size: 14px;
+    border-radius: 0.4rem;
+    border: 1px solid #d3d3d3;
+    height: 45px;
+    width: 670px;
+  }
+
+  .custom-paciente-input-3{
+    font-size: 14px;
+    border-radius: 0.4rem;
+    border: 1px solid #d3d3d3;
+    height: 45px;
+    width: 316px;
+  }
+
+  .custom-paciente-input-4{
+    font-size: 14px;
+    border-radius: 0.4rem;
+    border: 1px solid #d3d3d3;
+    height: 45px;
+    width: 200px;
+  }
+
+
   /*------------------------------------------------------------------
   [ Button ]*/
   .container-login100-form-btn {
@@ -412,12 +484,27 @@
   }
   
   
+  
   /*[ Sidebar ]
   ///////////////////////////////////////////////////////////
   */
+  .menu-wrapper {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #f8f9fa;
+    z-index: 999;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+  }
   
-  
-  
+  .menu-wrapper.closed {
+    width: 0;
+  }
+
+
   /*[ SHAPE ]
   ///////////////////////////////////////////////////////////
   */

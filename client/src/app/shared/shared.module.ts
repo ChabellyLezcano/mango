@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarModule } from 'ng-sidebar';
+import { ButtonModule } from 'primeng/button';
+import { MenuModule } from 'primeng/menu';
+
 
 
 @NgModule({
@@ -10,7 +13,7 @@ import { SidebarModule } from 'ng-sidebar';
   ],
   exports: [NavbarComponent],
   imports: [SidebarModule.forRoot(),
-    CommonModule
+    CommonModule, ButtonModule, MenuModule
   ]
 })
 export class SharedModule { }

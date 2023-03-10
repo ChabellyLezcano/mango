@@ -6,9 +6,12 @@ const crearPaciente = async (req, res = response) => {
   try {
     const { name, apellidos, email, dni, direccion, telefono_movil, cp, municipio, provincia } = req.body;
 
+    const { uid } = req;
+    const usuario =  uid;
+
     // Create a new instance of the Patient model
     const paciente = new Paciente({
-        name, apellidos, email, dni, direccion, telefono_movil, cp, municipio, provincia,
+        name, apellidos, email, dni, direccion, telefono_movil, cp, municipio, provincia, usuario
     });
 
     const pacienteExistente = await Paciente.findOne({ email });
@@ -18,7 +21,6 @@ const crearPaciente = async (req, res = response) => {
             ok: false,
             msg: 'El paciente ya existe con ese email'
         });
-        
     } 
 
     // Save the new patient to the database
@@ -118,8 +120,11 @@ const verPaciente = async (req, res = response) => {
 
 
 const listarPaciente = async (req, res = response) => {
+
+  const { uid } = req;
+    const usuario =  uid;
     try {
-        const pacientes = await Paciente.find();
+        const pacientes = await Paciente.find({usuario});
         res.json({ pacientes });
       } catch (error) {
         console.error(error.message);

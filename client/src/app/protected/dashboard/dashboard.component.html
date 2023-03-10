@@ -2,7 +2,6 @@
 <h1>Dashboard</h1>
 <hr>
 <app-navbar></app-navbar>
-
 <p>
     Esta página sólo funciona si estás autenticado
 </p>
@@ -10,6 +9,8 @@
 <h4>User info</h4>
 <pre>{{ usuario | json }}</pre>
 
-<button (click)="logout()">
-    Logout
+<button pButton pRipple type="button" label="Pacientes" class="p-button-raised p-button-danger" routerLink="/pacientes">
+</button>
+
+<button (click)="logout()" pButton pRipple type="button" label="Logout" class="p-button-raised p-button-danger">
 </button>

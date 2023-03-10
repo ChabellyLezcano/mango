@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { PrimeNgModule } from './prime-ng/prime-ng.module';
 import { SharedModule } from './shared/shared.module';
 import { SidebarModule } from 'ng-sidebar';
+import { DialogModule } from 'primeng/dialog';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
@@ -18,7 +20,11 @@ import { SidebarModule } from 'ng-sidebar';
     HttpClientModule,
     PrimeNgModule,
     SharedModule,
-    SidebarModule.forRoot()
+    SidebarModule.forRoot(),
+    DialogModule,
+    BrowserAnimationsModule
+
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

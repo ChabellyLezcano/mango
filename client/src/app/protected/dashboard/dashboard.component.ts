@@ -12,6 +12,7 @@ export class DashboardComponent {
     return this.authService.usuario;
   }
 
+  
 
   constructor(private router: Router, private authService: AuthService) {}
 
@@ -19,4 +20,5 @@ export class DashboardComponent {
     this.router.navigateByUrl('/auth');
     this.authService.logout();
   }
+
 }

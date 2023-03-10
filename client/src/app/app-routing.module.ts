@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ValidarTokenGuard } from './guards/validar-token.guard';
+import { PacientesComponent } from './protected/pacientes/pacientes.component';
 import { PerfilComponent } from './protected/perfil/perfil.component';
 
 const routes: Routes = [
@@ -17,6 +18,12 @@ const routes: Routes = [
   {
     path: 'perfil',
     component: PerfilComponent,
+    canActivate: [ ValidarTokenGuard ],
+    canLoad: [ ValidarTokenGuard ]
+  },
+  {
+    path: 'pacientes',
+    component: PacientesComponent,
     canActivate: [ ValidarTokenGuard ],
     canLoad: [ ValidarTokenGuard ]
   },
