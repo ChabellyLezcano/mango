@@ -1,4 +1,5 @@
 export interface PacientesResponse{
     ok: boolean,
-    msg?: string
+    msg?: string,
+    paciente?: any
 }

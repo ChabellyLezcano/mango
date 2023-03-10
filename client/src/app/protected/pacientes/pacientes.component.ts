@@ -9,28 +9,26 @@ import { PacientesService } from './services/pacientes.service';
   selector: 'app-pacientes',
   templateUrl: './pacientes.component.html'
 })
-export class PacientesComponent implements OnInit{
+export class PacientesComponent {
   displayDialog = false; // provide an initializer here
   get usuario() {
     return this.authService.usuario
   }
 
+
   miFormulario: FormGroup = this.fb.group({
-    name: ['Hola', [Validators.required]],
-    apellidos: ['28938', [Validators.required]],
-    telefono_movil: ['Hola', [Validators.required]],
-    email: ['Hola@gmail.com', [Validators.required, Validators.email]],
-    dni: ['Hola', [Validators.required]],
-    direccion: ['Hola', [Validators.required]],
-    cp: ['28993', [Validators.required]],
-    municipio: ['Homa', [Validators.required]],
-    provincia: ['Hola', [Validators.required]]
+    name: ['Sara', [Validators.required]],
+    apellidos: ['Cerdeña Lara', [Validators.required]],
+    telefono_movil: ['622747447', [Validators.required]],
+    email: ['sara@gmail.com', [Validators.required, Validators.email]],
+    dni: ['567840292-P', [Validators.required]],
+    direccion: ['Avenida Fierro 12', [Validators.required]],
+    cp: ['28004', [Validators.required]],
+    municipio: ['Madrid', [Validators.required]],
+    provincia: ['Madrid', [Validators.required]]
   });
 
   constructor(private router: Router, private authService: AuthService, private fb: FormBuilder, private pacientesService: PacientesService) {}
-
-
-  ngOnInit() {}
 
   showModalDialog() {
     this.displayDialog= true;
@@ -39,4 +37,43 @@ export class PacientesComponent implements OnInit{
 onHideDialog() {
   this.displayDialog = false;
 }
+
+paciente(){
+  console.log(this.miFormulario.value)
+  console.log(this.miFormulario.valid)
+
+  const {name,
+    apellidos,
+    email,
+    direccion,
+    telefono_movil,
+    dni,
+    cp,
+    municipio,
+    provincia, } = this.miFormulario.value;
+
+  this.pacientesService.paciente(name,
+    apellidos,
+    email,
+    direccion,
+    telefono_movil,
+    dni,
+    cp,
+    municipio,
+    provincia )
+  .subscribe(
+  (resp) => {
+  Swal.fire('Éxito', 'Paciente creado correctamente', 'success');
+  this.router.navigateByUrl('/pacientes');
+  this.displayDialog = false;
+  },
+  (error) => {
+  console.log(error);
+  Swal.fire('Error', error.error.msg, 'error');
+
+
+  }
+  );
+}
+
 }

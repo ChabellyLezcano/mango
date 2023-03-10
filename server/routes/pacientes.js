@@ -27,7 +27,7 @@ router.post(
   
   // Borrar paciente
   router.delete(
-    "/deletePaciente/:id",
+    "/deletePaciente/:id",validarJWT,
     borrarPaciente
   );
   
@@ -45,19 +45,20 @@ router.put(
       check("telefono_movil", "El campo del telefono está vacío").notEmpty(),
       check("cp", "El campo del nombre está vacío").notEmpty(),
       check("dni", "El campo del dni está vacío").notEmpty(),
-        validarCampos
+        validarCampos,
+        validarJWT
       ],
     actualizarPaciente
   );
   
  // Ver paciente
  router.get(
-    "/verPaciente/:id",
+    "/verPaciente/:id",validarJWT,
     verPaciente
   );
 
   router.get(
-    "/listarPaciente",
+    "/listarPaciente", validarJWT,
     listarPaciente
   );
 

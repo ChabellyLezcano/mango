@@ -6,11 +6,11 @@ const PacienteSchema = Schema({
         type: String,
         required: true
     },
-    email: {
+    apellidos: {
         type: String,
         required: true
     },
-    apellidos: {
+    email: {
         type: String,
         required: true
     },
@@ -18,17 +18,16 @@ const PacienteSchema = Schema({
         type: String,
         required: true
     },
-    cp: {
-        type: Number,
+    telefono_movil: {
+        type: String,
         required: true
     },
     dni: {
         type: String,
         required: true,
         unique: true
-    }
-    ,
-    telefono_movil: {
+    },
+    cp: {
         type: String,
         required: true
     },
@@ -44,8 +43,7 @@ const PacienteSchema = Schema({
     usuario: {
         type: Schema.Types.ObjectId,
         ref: 'Usuario',
-        required: true,
-        unique: true
+        required: true
       }
 });
 
