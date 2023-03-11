@@ -15,6 +15,7 @@ export class PacientesComponent {
     return this.authService.usuario
   }
 
+  listaPacientes: any[] = [];
 
   miFormulario: FormGroup = this.fb.group({
     name: ['Sara', [Validators.required]],
@@ -76,4 +77,16 @@ paciente(){
   );
 }
 
+getPaciente() {
+  this.pacientesService.getPaciente().subscribe(
+    (resp) => {
+      console.log('Pacientes')
+      console.log(resp);
+    },
+    (error) => {
+      console.log(error);
+      Swal.fire('Error', error.error.msg, 'error');
+    }
+  );
+}
 }

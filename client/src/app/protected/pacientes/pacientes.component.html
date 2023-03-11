@@ -137,3 +137,19 @@
     </form>
   </div>
 </p-dialog>
+
+
+<h2>Lista de pacientes</h2>
+<ul>
+  <li *ngFor="let paciente of listaPacientes">
+    <p>Nombre: {{ paciente.name }}</p>
+    <p>Apellidos: {{ paciente.apellidos }}</p>
+    <p>Teléfono móvil: {{ paciente.telefono_movil }}</p>
+    <p>Email: {{ paciente.email }}</p>
+    <p>DNI: {{ paciente.dni }}</p>
+    <p>Dirección: {{ paciente.direccion }}</p>
+    <p>Código postal: {{ paciente.cp }}</p>
+    <p>Municipio: {{ paciente.municipio }}</p>
+    <p>Provincia: {{ paciente.provincia }}</p>
+  </li>
+</ul>

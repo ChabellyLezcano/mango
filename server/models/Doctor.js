@@ -33,6 +33,17 @@ const DoctorSchema = Schema({
         type: String,
         required: true
     }
+    ,
+    dni: {
+        type: String,
+        required: true, 
+        unique: true
+    },
+    usuario: {
+        type: Schema.Types.ObjectId,
+        ref: 'Usuario',
+        required: true
+      }
 });
 
 module.exports = model('Doctor', DoctorSchema );

@@ -4,8 +4,12 @@ const { db } = require("../models/Doctor");
 
 const crearDoctor = async (req, res = response) => {
     try {
-      const { foto, name, apellidos, email, numColegiado, telefono_movil, especialidad } = req.body;
+      const { foto, name, apellidos, email, numColegiado, telefono_movil, especialidad, dni } = req.body;
   
+      const { uid } = req;
+    const usuario =  uid;
+
+
       // create a new instance of a Doctor
       const doctor = new Doctor({
         foto,
@@ -15,7 +19,29 @@ const crearDoctor = async (req, res = response) => {
         numColegiado,
         telefono_movil,
         especialidad,
+        dni,
+        usuario
       });
+
+      
+
+      const doctorExistenteDNI = await Doctor.findOne({ dni });
+
+    if ( doctorExistenteDNI ) {
+        return res.status(400).json({
+            ok: false,
+            msg: 'El doctor ya existe con ese dni'
+        });
+    } 
+  
+    const doctorExistenteNumColegiado = await Doctor.findOne({ numColegiado });
+
+    if ( doctorExistenteNumColegiado ) {
+        return res.status(400).json({
+            ok: false,
+            msg: 'El doctor ya existe con ese número de colegiado'
+        });
+    } 
   
       // save the Doctor to the database
       await doctor.save();

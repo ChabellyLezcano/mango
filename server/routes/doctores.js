@@ -2,6 +2,7 @@ const { Router } = require("express");
 const { check } = require("express-validator");
 const { borrarDoctor, crearDoctor, actualizarDoctor, verDoctor, listarDoctores } = require("../controllers/doctoresController");
 const { validarCampos } = require("../middlewares/validar-campos");
+const { validarJWT } = require("../middlewares/validar-jwt");
 
 const router = Router();
 
@@ -16,6 +17,7 @@ router.post(
     check("telefono_movil", "El campo del teléfono está vacío").notEmpty(),
     check("especialidad", "El campo de la especialidad está vacío").notEmpty(),
     validarCampos,
+    validarJWT
   ],
   crearDoctor
 );

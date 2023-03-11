@@ -47,5 +47,15 @@ export class PacientesService {
     return this.http.post<PacientesResponse>(url, body, { headers });
   }
 
+  getPaciente() {
+    const url = `${this.baseUrl}/paciente/listarPaciente`;
+    const headers = new HttpHeaders().set(
+      'x-token',
+      localStorage.getItem('token') || ''
+    );
+  
+    return this.http.get<any>(url, { headers });
+  }
+
 }
 

@@ -19,6 +19,10 @@ const routes: Routes = [
   {
     path: 'pacientes',
     component: PacientesComponent
+  },
+  {
+    path: 'doctores',
+    component: PacientesComponent
   }
 ];
 
