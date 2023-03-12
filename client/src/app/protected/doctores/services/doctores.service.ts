@@ -13,6 +13,7 @@ export class DoctoresService {
   constructor(private http: HttpClient) {}
 
   doctor(
+    cabecera: string,
     name: string,
     apellidos: string,
     email: string,
@@ -23,6 +24,7 @@ export class DoctoresService {
   ) {
     const url = `${this.baseUrl}/doctor/addDoctor`;
     const body = {
+      cabecera,
       name,
       apellidos,
       email,

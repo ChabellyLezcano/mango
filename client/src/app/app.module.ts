@@ -8,7 +8,8 @@ import { PrimeNgModule } from './prime-ng/prime-ng.module';
 import { SharedModule } from './shared/shared.module';
 import { SidebarModule } from 'ng-sidebar';
 import { DialogModule } from 'primeng/dialog';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {TreeSelectModule} from 'primeng/treeselect';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
     SharedModule,
     SidebarModule.forRoot(),
     DialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    TreeSelectModule
 
   
   ],

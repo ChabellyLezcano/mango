@@ -44,6 +44,6 @@ router.put(
 router.get("/verDoctor/:id", verDoctor);
 
 // Listar perfiles de doctores
-router.get("/listarDoctor", listarDoctores);
+router.get("/listarDoctor", validarJWT, listarDoctores);
 
 module.exports = router;

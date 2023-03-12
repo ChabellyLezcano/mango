@@ -10,9 +10,11 @@ const crearTratamientoLista = async (req, res = response) => {
   if (existingTratamiento) {
     return res.status(400).json({ msg: "El tratamiento ya existe" });
   }
+  const { uid } = req;
+  const usuario =  uid;
 
   // Crear el nuevo tratamiento
-  const tratamiento = new TratamientoLista({ name, categoria, precio });
+  const tratamiento = new TratamientoLista({ name, categoria, precio, usuario});
   await tratamiento.save();
 
   res.json({ msg: "Tratamiento creado con éxito", tratamiento });

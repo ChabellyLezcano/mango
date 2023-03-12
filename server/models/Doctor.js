@@ -6,6 +6,10 @@ const DoctorSchema = Schema({
         type: String,
         require: false 
       },
+      cabecera: {
+        type: String,
+        require: false 
+      },
     name: {
         type: String,
         required: true

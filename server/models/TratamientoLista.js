@@ -8,13 +8,18 @@ const TratamientoListaSchema = Schema({
     },
     categoria: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
     precio: {
         type: Number,
         required: true
-    }
+    },
+  usuario: {
+    type: Schema.Types.ObjectId,
+    ref: 'Usuario',
+    required: true,
+    unique: true
+  }
 });
 
 module.exports = model('TratamientoLista', TratamientoListaSchema);

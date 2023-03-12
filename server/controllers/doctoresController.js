@@ -4,7 +4,7 @@ const { db } = require("../models/Doctor");
 
 const crearDoctor = async (req, res = response) => {
     try {
-      const { foto, name, apellidos, email, numColegiado, telefono_movil, especialidad, dni } = req.body;
+      const { foto, cabecera, name, apellidos, email, numColegiado, telefono_movil, especialidad, dni } = req.body;
   
       const { uid } = req;
     const usuario =  uid;
@@ -13,6 +13,7 @@ const crearDoctor = async (req, res = response) => {
       // create a new instance of a Doctor
       const doctor = new Doctor({
         foto,
+        cabecera,
         name,
         apellidos,
         email,

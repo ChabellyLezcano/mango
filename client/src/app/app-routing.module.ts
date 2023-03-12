@@ -4,6 +4,7 @@ import { ValidarTokenGuard } from './guards/validar-token.guard';
 import { DoctoresComponent } from './protected/doctores/doctores.component';
 import { PacientesComponent } from './protected/pacientes/pacientes.component';
 import { PerfilComponent } from './protected/perfil/perfil.component';
+import { TratamientosComponent } from './protected/tratamientos/tratamientos.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,12 @@ const routes: Routes = [
   {
     path: 'doctores',
     component: DoctoresComponent,
+    canActivate: [ ValidarTokenGuard ],
+    canLoad: [ ValidarTokenGuard ]
+  },
+  {
+    path: 'tratamientos',
+    component: TratamientosComponent,
     canActivate: [ ValidarTokenGuard ],
     canLoad: [ ValidarTokenGuard ]
   },

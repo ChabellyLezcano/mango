@@ -23,13 +23,24 @@
 >
   <div>
     <form autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="doctor()">
-      <h2 class="title-paciente">Introduzca los datos necesarios</h2>
-      <div class="input-container-paciente">
+      <h2 class="title-doctor">Introduzca los datos necesarios</h2>
+      <div class="input-container-doctor">
+        <span class="p-float-label">
+          <input
+            id="float-input"
+            type="text"
+            formControlName="cabecera"
+            class="custom-doctor-input-1"
+            p-dropdown
+          />
+          <label for="float-input">Cabecera</label>
+        </span>
         <span class="p-float-label">
           <input
             id="float-input"
             type="text"
             formControlName="name"
+            class="custom-doctor-input-1"
             pInputText
           />
           <label for="float-input">Nombre</label>
@@ -39,41 +50,51 @@
             id="float-input"
             type="text"
             formControlName="apellidos"
-            class="custom-input-paciente-1"
+            class="custom-doctor-input-1"
             pInputText
           />
           <label for="float-input">Apellidos</label>
         </span>
       </div>
-      <div class="input-container-paciente">
+      <div class="input-container-doctor">
+        <span class="p-float-label">
+          <input
+            id="float-input"
+            type="text"
+            formControlName="especialidad"
+            class="custom-doctor-input-3"
+            pInputText
+          />
+          <label for="float-input">Especialidad</label>
+        </span>
+      </div>
+      <div class="input-container-doctor">
         <span class="p-float-label">
           <input
             type="text"
-            class="custom-paciente-input-2"
+            class="custom-doctor-input-3"
             formControlName="email"
             pInputText
           />
           <label for="float-input">Email</label>
         </span>
       </div>
-            <div class="input-container-paciente">
+            <div class="input-container-doctor">
               <span class="p-float-label">
                 <input
                   type="text"
-                  class="custom-paciente-input-2"
+                  class="custom-doctor-input-1"
                   formControlName="numColegiado"
                   pInputText
                 />
                 <label for="float-input">Numero de Colegiado</label>
               </span>
-            </div>
-
-            <div class="input-container-paciente">
               <span class="p-float-label">
                 <input
                   id="float-input"
                   type="text"
                   formControlName="telefono_movil"
+                  class="custom-doctor-input-1"
                   pInputText
                 />
                 <label for="float-input">Teléfono Móvil</label>
@@ -82,25 +103,14 @@
                 <input
                   id="float-input"
                   type="text"
-                  formControlName="especialidad"
-                  pInputText
-                />
-                <label for="float-input">Especialidad</label>
-              </span>
-            </div>
-
-            <div class="input-container-paciente">
-              <span class="p-float-label">
-                <input
-                  id="float-input"
-                  type="text"
                   formControlName="dni"
                   pInputText
-                  class="custom-paciente-input-3"
+                  class="custom-doctor-input-1"
                 />
                 <label for="float-input">DNI</label>
               </span>
             </div>
+
             <div class="button-container p-d-flex p-ai-center">
               <button
                 pButton
@@ -126,5 +136,6 @@
           </form>
         </div>
       </p-dialog>
+      
 
     

@@ -2,6 +2,7 @@ const { Router } = require("express");
 const { check } = require("express-validator");
 const { crearPresupuesto, borrarPresupuesto, actualizarPresupuesto, verPresupuesto, listarPresupuestoSinId, listarPresupuestoConId } = require("../controllers/presupuestosController");
 const { validarCampos } = require("../middlewares/validar-campos");
+const { validarJWT } = require("../middlewares/validar-jwt");
 
 const router = Router();
 
@@ -16,6 +17,7 @@ router.post(
     check("categoria", "El campo de la categoría está vacío").notEmpty(),
     check("descripcion", "El campo de la descripción está vacío").notEmpty(),
     validarCampos,
+    validarJWT
   ],
   crearPresupuesto
 );
@@ -34,17 +36,18 @@ router.put(
     check("categoria", "El campo de la categoría está vacío").notEmpty(),
     check("descripcion", "El campo de la descripción está vacío").notEmpty(),
     validarCampos,
+    validarJWT
   ],
   actualizarPresupuesto
 );
 
 // Ver presupuesto
-router.get("/verPresupuesto/:id", verPresupuesto);
+router.get("/verPresupuesto/:id", validarJWT, verPresupuesto);
 
 // Listar presupuestos sin ID
-router.get("/listarPresupuestoSinId", listarPresupuestoSinId);
+router.get("/listarPresupuestoSinId", validarJWT, listarPresupuestoSinId);
 
 // Listar presupuestos con ID
-router.get("/listarPresupuestoConId", listarPresupuestoConId);
+router.get("/listarPresupuestoConId", validarJWT, listarPresupuestoConId);
 
 module.exports = router;

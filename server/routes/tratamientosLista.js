@@ -8,6 +8,7 @@ const {
   listarTratamientoLista,
 } = require("../controllers/tratamientosListaController");
 const { validarCampos } = require("../middlewares/validar-campos");
+const {validarJWT} = require('../middlewares/validar-jwt')
 
 const router = Router();
 
@@ -20,6 +21,7 @@ router.post(
     check("precio", "El campo del precio está vacío").notEmpty(),
     check("precio", "El campo del precio debe ser un número").isNumeric(),
     validarCampos,
+    validarJWT
   ],
   crearTratamientoLista
 );

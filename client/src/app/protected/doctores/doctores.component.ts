@@ -25,20 +25,21 @@ export class DoctoresComponent {
   }
 
   miFormulario: FormGroup = this.fb.group({
-    name: ['Bernardo', [Validators.required]],
-    apellidos: ['Sánchez Vallejo', [Validators.required]],
-    email: ['bernardo@gmail.com', [Validators.required]],
-    numColegiado: ['28009319', [Validators.required]],
-    telefono_movil: ['657894833', [Validators.required]],
-    especialidad: ['Ortodoncia', [Validators.required]],
-    dni: ['50509023-B', [Validators.required]],
+    cabecera: ['Dra.', [Validators.required]],
+    name: ['Elena', [Validators.required]],
+    apellidos: ['Rivero Vasco', [Validators.required]],
+    email: ['elena@gmail.com', [Validators.required]],
+    numColegiado: ['2800292', [Validators.required]],
+    telefono_movil: ['623210929', [Validators.required]],
+    especialidad: ['Implantología', [Validators.required]],
+    dni: ['50234810-Q', [Validators.required]],
   });
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private doctoresService: DoctoresService,
-    private authService: AuthService
+    private authService: AuthService,
   ) {}
 
   doctor() {
@@ -46,6 +47,7 @@ export class DoctoresComponent {
     console.log(this.miFormulario.valid);
 
     const {
+      cabecera,
       name,
       apellidos,
       email,
@@ -57,13 +59,14 @@ export class DoctoresComponent {
 
     this.doctoresService
       .doctor(
-        name,
-        apellidos,
-        email,
-        numColegiado,
-        telefono_movil,
-        especialidad,
-        dni
+        cabecera,
+      name,
+      apellidos,
+      email,
+      numColegiado,
+      telefono_movil,
+      especialidad,
+      dni
       )
       .subscribe(
         (resp) => {

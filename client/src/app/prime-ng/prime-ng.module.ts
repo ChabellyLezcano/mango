@@ -9,12 +9,13 @@ import {SidebarModule} from 'primeng/sidebar';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
+import {TreeSelectModule} from 'primeng/treeselect';
 
 
 
 @NgModule({
   exports: [ButtonModule, CardModule, InputTextModule,
-     SidebarModule, ConfirmDialogModule, MessageModule, MessagesModule],
+     SidebarModule, ConfirmDialogModule, MessageModule, MessagesModule, TreeSelectModule],
   declarations: [],
   imports: [
     
