@@ -18,6 +18,7 @@ const crearProducto = async (req, res = response) => {
     const { uid } = req;
     const usuario = uid;
 
+
     // create a new instance of a Producto
     const producto = new Producto({
         codigoProducto,
@@ -30,6 +31,15 @@ const crearProducto = async (req, res = response) => {
         fecha,
       usuario,
     });
+
+    const productoExistente= await Producto.findOne({ codigoProducto, fecha });
+
+    if ( productoExistente ) {
+        return res.status(400).json({
+            ok: false,
+            msg: 'Ya has añadido este mismo producto en esta fecha'
+        });
+    } 
 
     // save the Doctor to the database
     await producto.save();
