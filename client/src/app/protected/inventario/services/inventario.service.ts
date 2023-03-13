@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { InventarioResponse } from '../interfaces/inventario.interfaces';
+import { InventarioResponse, Producto } from '../interfaces/inventario.interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -39,5 +39,17 @@ export class InventarioService {
     );
 
     return this.http.post<InventarioResponse>(url, body, { headers });
+  }
+
+  //Listar productos
+  getInventario() {
+    const url = `${this.baseUrl}/inventario/listarProductos`;
+
+    const headers = new HttpHeaders().set(
+      'x-token',
+      localStorage.getItem('token') || ''
+    );
+
+    return this.http.get<Producto[]>(url, { headers });
   }
 }

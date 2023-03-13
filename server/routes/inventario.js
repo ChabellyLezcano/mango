@@ -25,11 +25,11 @@ router.post(
 );
 
 // Borrar perfil
-router.delete("/deleteDoctor/:id", borrarProducto);
+router.delete("/deleteProducto/:id", borrarProducto);
 
 // Actualizar perfil
 router.put(
-  "/actualizarDoctor/:id",
+  "/actualizarProducto/:id",
   [
     check("name", "El campo del nombre está vacío").notEmpty(),
     check("categoria", "El campo de la categoría está vacío").notEmpty(),
@@ -45,9 +45,9 @@ router.put(
 );
 
 // Ver perfil
-router.get("/verDoctor/:id", verProducto);
+router.get("/verProducto/:id", verProducto);
 
 // Listar perfiles de doctores
-router.get("/listarDoctor", validarJWT, listarProductos);
+router.get("/listarProductos", validarJWT, listarProductos);
 
 module.exports = router;
