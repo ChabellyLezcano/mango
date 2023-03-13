@@ -10,6 +10,9 @@ import { SidebarModule } from 'ng-sidebar';
 import { DialogModule } from 'primeng/dialog';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TreeSelectModule} from 'primeng/treeselect';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+import {CalendarModule} from 'primeng/calendar';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,8 +27,10 @@ import {TreeSelectModule} from 'primeng/treeselect';
     SidebarModule.forRoot(),
     DialogModule,
     BrowserAnimationsModule,
-    TreeSelectModule
-
+    TreeSelectModule,
+    InputTextareaModule,
+    CalendarModule,
+    FormsModule
   
   ],
   providers: [],

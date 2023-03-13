@@ -323,7 +323,7 @@
   
   .button-container {
     text-align: center;
-    padding-top: 35px;
+    padding-top: 6px;
     display: flex;
   justify-content: space-between;
   align-items: center;
@@ -527,9 +527,72 @@
       width: 400px;
     }
   
-  
-  
 
+      /*Tarjeta evento*/
+      .card-evento{
+        width: 30rem;
+        margin: 0 auto;
+        box-shadow: 0 6px 6px 6px rgba(0, 0, 0, 0.5);
+        transition: 0.4s;
+        padding: 2rem;
+        padding-top: auto;
+        border-radius: 0.8rem;
+        border: 1px solid #c9c8c8;
+        overflow: hidden;
+        display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      }
+    
+      .card-evento:hover {
+        box-shadow: 2px 10px 10px 0 rgba(0, 0, 0, 0.4);
+      }
+    
+      .title-evento {
+        text-align: center;
+      }
+    
+      .input-container-evento {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 40px;
+        padding-bottom: 20px;
+    
+  grid-gap: 20px;
+        
+      }
+      
+      .input-container input {
+        width: 50%;
+      }
+      .card-body-evento {
+        padding: 10px;
+      }
+    
+      .custom-input-evento {
+        font-size: 14px;
+        border-radius: 0.4rem;
+        border: 1px solid #d3d3d3;
+        height: 45px;
+        width: 480px;
+      }
+
+      .custom-input-text-area{
+        font-size: 14px;
+        border-radius: 0.4rem;
+        border: 1px solid #d3d3d3;
+        height: 160px;
+        width: 480px;
+      }
+
+      .custom-input-evento-2 {
+        padding-left: 2rem;
+        font-size: 14px;
+        border-radius: 0.4rem;
+        border: 1px solid #d3d3d3;
+        height: 45px;
+        width: 100px;
+      }
 
   /*------------------------------------------------------------------
   [ Button ]*/

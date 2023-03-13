@@ -10,12 +10,13 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {TreeSelectModule} from 'primeng/treeselect';
-
+import {InputTextareaModule} from 'primeng/inputtextarea';
+import {CalendarModule} from 'primeng/calendar';
 
 
 @NgModule({
   exports: [ButtonModule, CardModule, InputTextModule,
-     SidebarModule, ConfirmDialogModule, MessageModule, MessagesModule, TreeSelectModule],
+     CalendarModule, SidebarModule, InputTextareaModule, ConfirmDialogModule, MessageModule, MessagesModule, TreeSelectModule],
   declarations: [],
   imports: [
     

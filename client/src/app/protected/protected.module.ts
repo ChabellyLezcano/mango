@@ -14,9 +14,12 @@ import { PacientesComponent } from './pacientes/pacientes.component';
 import { DialogModule } from 'primeng/dialog';
 import {TableModule} from 'primeng/table';
 import {TreeSelectModule} from 'primeng/treeselect';
-import { SelectItem } from 'primeng/api';
 import { TratamientosComponent } from './tratamientos/tratamientos.component';
-
+import { EventosComponent } from './eventos/eventos.component';
+import { FormsModule } from '@angular/forms';
+import { InventarioComponent } from './inventario/inventario.component';
+import { EstadisticasComponent } from './estadisticas/estadisticas.component';
+import { PresupuestosComponent } from './presupuestos/presupuestos.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,11 @@ import { TratamientosComponent } from './tratamientos/tratamientos.component';
     PerfilComponent,
     PacientesComponent,
     DoctoresComponent,
-    TratamientosComponent
+    TratamientosComponent,
+    EventosComponent,
+    InventarioComponent,
+    EstadisticasComponent,
+    PresupuestosComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +41,8 @@ import { TratamientosComponent } from './tratamientos/tratamientos.component';
     SharedModule,
     ButtonModule,
     DialogModule, TableModule,
-    TreeSelectModule
+    TreeSelectModule,
+    FormsModule
   ]
 })
 export class ProtectedModule { }
