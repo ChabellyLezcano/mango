@@ -44,12 +44,13 @@ export class InventarioService {
   //Listar productos
   getInventario() {
     const url = `${this.baseUrl}/inventario/listarProductos`;
-
+  
     const headers = new HttpHeaders().set(
       'x-token',
       localStorage.getItem('token') || ''
     );
-
-    return this.http.get<Producto[]>(url, { headers });
+  
+    return this.http.get<InventarioResponse>(url, { headers });
   }
+  
 }

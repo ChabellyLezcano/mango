@@ -46,8 +46,8 @@ const crearProducto = async (req, res = response) => {
 
     // send the Doctor object as a response
     res.status(201).json({
-      ok: true,
-      msg: "Producto añadido exitosamente",
+      //ok: true,
+      //msg: "Producto añadido exitosamente",
       producto
     });
   } catch (error) {
@@ -162,7 +162,7 @@ const listarProductos = async (req, res = response) => {
   try {
     const producto = await Producto.find();
     res.status(200).json({
-      ok: true,
+      //ok: true,
      producto
     });
   } catch (error) {

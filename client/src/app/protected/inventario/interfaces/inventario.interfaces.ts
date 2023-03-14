@@ -1,5 +1,5 @@
 export interface InventarioResponse{
-  ok:       boolean;
+  //ok: boolean,
   producto: Producto[];
 }
 

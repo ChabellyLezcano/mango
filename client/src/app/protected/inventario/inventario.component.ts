@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import Swal from 'sweetalert2';
-import { Producto } from './interfaces/inventario.interfaces';
+import { InventarioResponse, Producto } from './interfaces/inventario.interfaces';
 import { InventarioService } from './services/inventario.service';
 
 @Component({
@@ -15,6 +15,7 @@ export class InventarioComponent implements OnInit{
   displayDialog = false; // provide an initializer here
 
   productos: Producto[] = [];
+  productosHtml: string[] = [];
 
   time!: Date;
   date3!: Date;
@@ -42,7 +43,7 @@ export class InventarioComponent implements OnInit{
     descripcion: ['Guantes de látex azules talla M', [Validators.required]],
     precio: ['20', [Validators.required]],
     unidades: ['1', [Validators.required]],
-    fecha: [new Date(), [Validators.required]],
+    fecha: ['12/05/2019', [Validators.required]],
   });
 
 
@@ -93,18 +94,16 @@ export class InventarioComponent implements OnInit{
   this.getInventario();
 }
 
-  getInventario() {
-    this.inventarioService.getInventario().subscribe(
-      (productos) => {
-        console.log(productos);
-        this.productos = productos
-      },
-      (error) => {
-        console.log(error);
-        Swal.fire('Error', error.error.msg, 'error');
-      }
-    );
-  }
 
+getInventario() {
+  this.inventarioService.getInventario().subscribe(
+    (response) => {
+      this.productos = response.producto;
+    },
+    (error) => {
+      console.log('Error al obtener el inventario:', error);
+    }
+  );
+}
 }
 
